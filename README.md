@@ -1,6 +1,6 @@
 #Easy Language Typing Translators
 
-## Running Tests
+## Running Tests:
 
     vendor/bin/phpunit
     OR
