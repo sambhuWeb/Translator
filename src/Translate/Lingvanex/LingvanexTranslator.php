@@ -2,6 +2,7 @@
 
 namespace Translator\Translate\Lingvanex;
 
+use Exception;
 use Translator\Client\GuzzleHTTPClient;
 use Translator\Translate\DTO\Input\TranslateRequestDTO;
 use Translator\Translate\DTO\Output\TranslatedResponseDTO;
@@ -12,6 +13,7 @@ use JMS\Serializer\Naming\IdenticalPropertyNamingStrategy;
 use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
+use const Exception;
 
 class LingvanexTranslator implements Translator
 {
