@@ -3,11 +3,9 @@
 namespace test\UnitTest;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\Stream;
-use http\Exception;
 use PHPUnit\Framework\MockObject\MockObject;
 use Translator\Client\GuzzleHTTPClient;
 use Translator\Translate\DTO\Input\TranslateRequestDTO;
@@ -17,6 +15,9 @@ use PHPUnit\Framework\TestCase;
 
 class LingvanexTranslatorTest extends TestCase
 {
+    /** @var GuzzleException|MockObject */
+    private $mockedGuzzleException;
+
     /** @var MockObject|GuzzleHTTPClient */
     private $mockedGuzzleHTTPClient;
 
@@ -34,6 +35,12 @@ class LingvanexTranslatorTest extends TestCase
 
     public function setUp()
     {
+        $this->mockedGuzzleException = $this
+            ->getMockBuilder(GuzzleException::class)
+            ->disableOriginalConstructor()
+            ->getMock()
+        ;
+
         $this->mockedGuzzleHTTPClient = $this
             ->getMockBuilder(GuzzleHTTPClient::class)
             ->setMethods(['getClient'])
@@ -61,8 +68,8 @@ class LingvanexTranslatorTest extends TestCase
             ->getMock()
         ;
 
-        $this->mockedResponse->method('getBody')->willReturn($this->mockedContent);
         $this->mockedClient->method('request')->willReturn($this->mockedResponse);
+        $this->mockedResponse->method('getBody')->willReturn($this->mockedContent);
         $this->mockedGuzzleHTTPClient->method('getClient')->willReturn($this->mockedClient);
 
         $this->lingvanexTranslator = new LingvanexTranslator($this->mockedGuzzleHTTPClient);
@@ -90,7 +97,7 @@ class LingvanexTranslatorTest extends TestCase
 
         $translatedResponseDTO = $this
             ->lingvanexTranslator
-            ->setAuthorizationToken('some-token')
+            ->setAuthorizationToken('a-valid-token')
             ->translate(
                 new TranslateRequestDTO(
                     'en_GB',
@@ -116,10 +123,14 @@ class LingvanexTranslatorTest extends TestCase
     {
         $this->expectException(TranslatorException::class);
 
-        $lingvanexTranslator = new LingvanexTranslator(new GuzzleHTTPClient);
+        $this
+            ->mockedClient
+            ->method('request')
+            ->willThrowException($this->mockedGuzzleException)
+        ;
 
-        $lingvanexTranslator
-            ->setAuthorizationToken('some invalid key')
+        $this->lingvanexTranslator
+            ->setAuthorizationToken('some-invalid-token')
             ->translate(
                 new TranslateRequestDTO(
                     'en_GB',
@@ -138,12 +149,14 @@ class LingvanexTranslatorTest extends TestCase
     {
         $this->expectException(TranslatorException::class);
 
-        $lingvanexTranslator = new LingvanexTranslator(new GuzzleHTTPClient);
+        $this
+            ->mockedClient
+            ->method('request')
+            ->willThrowException($this->mockedGuzzleException)
+        ;
 
-        $token = 'a_tme3wcJhZa9fWi0hmc5MV10RVnPQ0LsXYpZHIIM7GSvJf3PZUwNkTY3VBFUdJmXc4xdJe0hW9WITxo7s';
-
-        $lingvanexTranslator
-            ->setAuthorizationToken($token)
+        $this->lingvanexTranslator
+            ->setAuthorizationToken('a-valid-token')
             ->translate(
                 new TranslateRequestDTO(
                     'aa_AA',
