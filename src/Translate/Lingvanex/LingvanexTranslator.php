@@ -66,8 +66,8 @@ class LingvanexTranslator implements Translator
 
         return new TranslatedResponseDTO(
             $responseBody['result'],
-            $responseBody['sourceTransliteration'],
-            $responseBody['targetTransliteration']
+            $responseBody['sourceTransliteration'] ?? '',
+            $responseBody['targetTransliteration'] ?? ''
         );
     }
 

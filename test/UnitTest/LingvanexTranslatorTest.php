@@ -167,4 +167,40 @@ class LingvanexTranslatorTest extends TestCase
             )
         ;
     }
+
+    /**
+     * @test
+     */
+    public function when_enable_transliteration_is_false_it_doesnot_return_transliteration_text()
+    {
+        $mockedResponseContentFromLingvanex = [
+            'err' => null,
+            'result' => "हामी नेपाली हौं र हामी नेपाललाई माया गर्छौं।"
+        ];
+
+        $this
+            ->mockedContent
+            ->method('getContents')
+            ->willReturn(
+                json_encode($mockedResponseContentFromLingvanex)
+            )
+        ;
+
+        $translatedResponseDTO = $this
+            ->lingvanexTranslator
+            ->setAuthorizationToken('a-valid-token')
+            ->translate(
+                new TranslateRequestDTO(
+                    'en_GB',
+                    'ne_NP',
+                    'We are Nepali and we love Nepal',
+                    false
+                )
+            )
+        ;
+
+        self::assertEquals('हामी नेपाली हौं र हामी नेपाललाई माया गर्छौं।', $translatedResponseDTO->getTranslatedText());
+        self::assertEmpty($translatedResponseDTO->getSourceTextToBeTranslated());
+        self::assertEmpty($translatedResponseDTO->getTransliteratedText());
+    }
 }
