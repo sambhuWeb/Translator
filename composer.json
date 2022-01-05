@@ -3,6 +3,11 @@
     "description": "Package for Translating language from various translator such as Google, Microsoft, Lingvanex",
     "type": "composer",
     "license": "MIT",
+    "scripts" : {
+        "test" : [
+            "vendor/bin/phpunit"
+        ]
+    },
     "authors": [
         {
             "name": "Sambhu Singh",

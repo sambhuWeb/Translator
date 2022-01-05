@@ -2,7 +2,6 @@
 
 namespace Translator\Translate\Lingvanex;
 
-use Exception;
 use Translator\Client\GuzzleHTTPClient;
 use Translator\Translate\DTO\Input\TranslateRequestDTO;
 use Translator\Translate\DTO\Output\TranslatedResponseDTO;
