@@ -1,6 +1,6 @@
 <?php
 
-namespace test\UnitTest;
+namespace test\UnitTest\Lingvanex;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
