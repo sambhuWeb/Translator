@@ -5,9 +5,11 @@ namespace test\UnitTest\Google;
 use Google\Cloud\Core\Exception\BadRequestException;
 use Google\Cloud\Translate\V2\TranslateClient;
 use PHPUnit\Framework\TestCase;
+use Translator\Translate\Constant\Translator;
 use Translator\Translate\DTO\Input\TranslateRequestDTO;
 use Translator\Translate\Exception\TranslatorException;
 use Translator\Translate\Google\GoogleTranslator;
+use Translator\Translate\Service\LanguageCode\LanguageCodeLookUpService;
 
 class GoogleTranslatorTest extends TestCase
 {
@@ -46,8 +48,8 @@ class GoogleTranslatorTest extends TestCase
         
         $translatedResponseDTO = $googleTranslator->translate(
             new TranslateRequestDTO(
-                'en',
-                'ne',
+                LanguageCodeLookUpService::fetch('en', Translator::GOOGLE),
+                LanguageCodeLookUpService::fetch('ne', Translator::GOOGLE),
                 'We are Nepali and we love Nepal',
                 true
             )
