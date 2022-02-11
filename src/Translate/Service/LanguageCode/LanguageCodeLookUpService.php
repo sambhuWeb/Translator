@@ -16,6 +16,5 @@ class LanguageCodeLookUpService
             default:
                 return 'some exception';
         }
-        
     }
 }
