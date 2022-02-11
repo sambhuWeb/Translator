@@ -45,43 +45,62 @@ class LanguageCodeLookUpServiceTest extends TestCase
     {
         // English
         yield['en', 'en_GB'];
-        yield['en_GB', 'en_GB'];
+
+
         // Nepali
         yield['ne', 'ne_NP'];
-        yield['ne_NP', 'ne_NP'];
         // Hindi
         yield['hi', 'hi_IN'];
-        yield['hi_IN', 'hi_IN'];
         // Tamil
         yield['ta', 'ta_IN'];
-        yield['ta_IN', 'ta_IN'];
+        // Telugu
+        yield['te', 'te_IN'];
         // Malayalam
         yield['ml', 'ml_IN'];
-        yield['ml_IN', 'ml_IN'];
         // Kannada
         yield['kn', 'kn_IN'];
-        yield['kn_IN', 'kn_IN'];
         // Sinhala
         yield['si', 'si_LK'];
-        yield['si_LK', 'si_LK'];
+        // Punjabi
+        yield['pa', 'pa_PK'];
+        // Gujarati
+        yield['gu', 'gu_IN'];
+        // Marathi
+        yield['mr', 'mr_IN'];
+        // Oria
+        yield['or', 'or_OR'];
         // Bangla
         yield['bn', 'bn_BD'];
-        yield['bn_BD', 'bn_BD'];
+
         // Urdu
         yield['ur', 'ur_PK'];
-        yield['ur_PK', 'ur_PK'];
         // Arabic
         yield['ar', 'ar_AE'];
-        yield['ar_AE', 'ar_AE'];
+        // Persian
+        yield['fa', 'fa_IR'];
+
         // Malay
         yield['ms', 'ms_MY'];
-        yield['ms_MY', 'ms_MY'];
         // Tagalog
         yield['tl', 'tl_PH'];
-        yield['tl_PH', 'tl_PH'];
+
         // Greek
         yield['el', 'el_GR'];
-        yield['el_GR', 'el_GR'];
+        // Spanish
+        yield['es', 'es_ES'];
+        // Italian
+        yield['it', 'it_IT'];
+        // Portuguese
+        yield['pt', 'pt_PT'];
+        // German
+        yield['de', 'de_DE'];
+
+        // Amharic
+        yield['am', 'am_ET'];
+        // Swahili
+        yield['sw', 'sw_TZ'];
+        // Afrikaans
+        yield['af', 'af_ZA'];
     }
 
     /**
