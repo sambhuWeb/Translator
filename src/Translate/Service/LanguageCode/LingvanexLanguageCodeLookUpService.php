@@ -36,16 +36,48 @@ class LingvanexLanguageCodeLookUpService implements LanguageCodeLookUpServiceInt
                 return LingvanexLanguageCode::ORIYA;
             case TranslatorLanguageCode::BANGLA:
                 return LingvanexLanguageCode::BANGLA;
+            case TranslatorLanguageCode::SINDHI:
+                return LingvanexLanguageCode::SINDHI;
+            case TranslatorLanguageCode::PASHTO:
+                return LingvanexLanguageCode::PASHTO;
+            case TranslatorLanguageCode::KURDISH:
+                return LingvanexLanguageCode::KURDISH;
             case TranslatorLanguageCode::URDU:
                 return LingvanexLanguageCode::URDU;
             case TranslatorLanguageCode::ARABIC:
                 return LingvanexLanguageCode::ARABIC_UAE;
             case TranslatorLanguageCode::FARSI:
                 return LingvanexLanguageCode::FARSI;
+            case TranslatorLanguageCode::HEBREW:
+                return LingvanexLanguageCode::HEBREW;
+            case TranslatorLanguageCode::THAI:
+                return LingvanexLanguageCode::THAI;
+            case TranslatorLanguageCode::MYANMAR:
+                return LingvanexLanguageCode::MYANMAR;
             case TranslatorLanguageCode::MALAY:
                 return LingvanexLanguageCode::MALAY;
+            case TranslatorLanguageCode::VIETNAMESE:
+                return LingvanexLanguageCode::VIETNAMESE;
+            case TranslatorLanguageCode::LAO:
+                return LingvanexLanguageCode::LAO;
+            case TranslatorLanguageCode::INDONESIAN:
+                return LingvanexLanguageCode::INDONESIAN;
+            case TranslatorLanguageCode::JAVANESE:
+                return LingvanexLanguageCode::JAVANESE;
+            case TranslatorLanguageCode::KHMER:
+                return LingvanexLanguageCode::KHMER;
             case TranslatorLanguageCode::TAGALOG:
                 return LingvanexLanguageCode::TAGALOG;
+            case TranslatorLanguageCode::CEBUANO:
+                return LingvanexLanguageCode::CEBUANO;
+            case TranslatorLanguageCode::CHINESE_SIMPLIFIED:
+                return LingvanexLanguageCode::CHINESE_SIMPLIFIED;
+            case TranslatorLanguageCode::CHINESE_TRADITIONAL:
+                return LingvanexLanguageCode::CHINESE_TRADITIONAL;
+            case TranslatorLanguageCode::JAPANESE:
+                return LingvanexLanguageCode::JAPANESE;
+            case TranslatorLanguageCode::KOREAN:
+                return LingvanexLanguageCode::KOREAN;
             case TranslatorLanguageCode::GREEK:
                 return LingvanexLanguageCode::GREEK;
             case TranslatorLanguageCode::SPANISH:

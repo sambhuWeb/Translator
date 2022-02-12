@@ -46,7 +46,7 @@ class LanguageCodeLookUpServiceTest extends TestCase
         // English
         yield['en', 'en_GB'];
 
-
+        // South Asia
         // Nepali
         yield['ne', 'ne_NP'];
         // Hindi
@@ -71,19 +71,56 @@ class LanguageCodeLookUpServiceTest extends TestCase
         yield['or', 'or_OR'];
         // Bangla
         yield['bn', 'bn_BD'];
-
         // Urdu
         yield['ur', 'ur_PK'];
+        // Sindhi
+        yield['sd', 'sd_PK'];
+        // Pashto
+        yield['ps', 'ps_AF'];
+        // Kurdish
+        yield['ku', 'ku_IR'];
+
+        // Middle East
         // Arabic
         yield['ar', 'ar_AE'];
         // Persian
         yield['fa', 'fa_IR'];
+        // Hebrew
+        yield['he', 'he_IL'];
 
+        // South East Asia
+        // Thai
+        yield['th', 'th_TH'];
+        // Myanmar (Burmese)
+        yield['my', 'my_MM'];
+        // Vietnamese
+        yield['vi', 'vi_VN'];
+        // Lao
+        yield['lo', 'lo_LA'];
+        // Indonesian
+        yield['id', 'id_ID'];
+        // Javanese
+        yield['jv', 'jv_ID'];
+        // Khmer
+        yield['km', 'km_KH'];
         // Malay
         yield['ms', 'ms_MY'];
         // Tagalog
         yield['tl', 'tl_PH'];
+        // Cebuano
+        yield['ceb', 'ceb_PH'];
 
+        // East Asia
+        // Chinese (Simplified)
+        yield['zh', 'zh-Hans_CN'];
+        // Chinese (Traditional)
+        yield['zh-TW', 'zh-Hant_TW'];
+        // Japanese
+        yield['ja', 'ja_JP'];
+        // Korean
+        yield['ko', 'ko_KR'];
+
+        // Europe
         // Greek
         yield['el', 'el_GR'];
         // Spanish
@@ -95,6 +132,7 @@ class LanguageCodeLookUpServiceTest extends TestCase
         // German
         yield['de', 'de_DE'];
 
+        // Africa
         // Amharic
         yield['am', 'am_ET'];
         // Swahili
