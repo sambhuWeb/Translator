@@ -3,6 +3,7 @@
 namespace Translator\Tests\UnitTest\Service;
 
 use Generator;
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use Translator\Translate\Constant\Translator;
 use Translator\Translate\Service\LanguageCode\LanguageCodeLookUpService;
@@ -44,9 +45,12 @@ class LanguageCodeLookUpServiceTest extends TestCase
      */
     public function it_throws_exception_when_invalid_translator_type_is_provided()
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $translatorType = 'SomeInvalidTranslator';
 
-        LanguageCodeLookUpService::fetch('ne', 'SomeInvalidTranslator');
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage(sprintf("%s translator type is not valid.", $translatorType));
+
+        LanguageCodeLookUpService::fetch('ne', $translatorType);
     }
 
     public function lingvanexLanguageCodeProvider(): Generator

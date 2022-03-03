@@ -2,6 +2,7 @@
 
 namespace Translator\Translate\Service\LanguageCode;
 
+use InvalidArgumentException;
 use Translator\Translate\Constant\Translator;
 
 class LanguageCodeLookUpService
@@ -14,8 +15,8 @@ class LanguageCodeLookUpService
             case Translator::GOOGLE:
                 return GoogleLanguageCodeLookUpService::fetch($languageCode);
             default:
-                throw new \InvalidArgumentException(
-                    $translator . ' translator type is not valid. '
+                throw new InvalidArgumentException(
+                    sprintf("%s translator type is not valid.", $translator)
                 );
         }
     }
