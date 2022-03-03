@@ -14,7 +14,9 @@ class LanguageCodeLookUpService
             case Translator::GOOGLE:
                 return GoogleLanguageCodeLookUpService::fetch($languageCode);
             default:
-                return 'some exception';
+                throw new \InvalidArgumentException(
+                    $translator . ' translator type is not valid. '
+                );
         }
     }
 }

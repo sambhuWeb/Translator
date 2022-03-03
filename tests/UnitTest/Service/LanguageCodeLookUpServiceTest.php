@@ -1,7 +1,8 @@
 <?php
 
-namespace test\UnitTest\Service;
+namespace Translator\Tests\UnitTest\Service;
 
+use Generator;
 use PHPUnit\Framework\TestCase;
 use Translator\Translate\Constant\Translator;
 use Translator\Translate\Service\LanguageCode\LanguageCodeLookUpService;
@@ -39,9 +40,16 @@ class LanguageCodeLookUpServiceTest extends TestCase
     }
 
     /**
-     * @return \Generator
+     * @test
      */
-    public function lingvanexLanguageCodeProvider(): \Generator
+    public function it_throws_exception_when_invalid_translator_type_is_provided()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+
+        LanguageCodeLookUpService::fetch('ne', 'SomeInvalidTranslator');
+    }
+
+    public function lingvanexLanguageCodeProvider(): Generator
     {
         // English
         yield['en', 'en_GB'];
@@ -142,9 +150,9 @@ class LanguageCodeLookUpServiceTest extends TestCase
     }
 
     /**
-     * @return \Generator
+     * @return Generator
      */
-    public function googleLanguageCodeProvider(): \Generator
+    public function googleLanguageCodeProvider(): Generator
     {
         yield['el', 'el'];
         yield['ar', 'ar'];

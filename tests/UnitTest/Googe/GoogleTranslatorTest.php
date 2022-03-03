@@ -1,6 +1,6 @@
 <?php
 
-namespace test\UnitTest\Google;
+namespace Translator\Tests\UnitTest\Google;
 
 use Google\Cloud\Core\Exception\BadRequestException;
 use Google\Cloud\Translate\V2\TranslateClient;
