@@ -19,6 +19,11 @@
             "Translator\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Translator\\Tests\\": "tests/"
+        }
+    },
     "require-dev": {
         "roave/security-advisories": "dev-latest",
         "phpunit/phpunit": "^7"
@@ -27,6 +32,7 @@
         "ext-json": "*",
         "guzzlehttp/psr7": "^1.6.1",
         "guzzlehttp/guzzle": "7.0.1",
-        "jms/serializer": "3.9.0"
+        "jms/serializer": "3.9.0",
+        "google/cloud-translate": "^1.12"
     }
 }

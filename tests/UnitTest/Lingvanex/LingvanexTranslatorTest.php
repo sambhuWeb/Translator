@@ -1,17 +1,19 @@
 <?php
 
-namespace test\UnitTest;
+namespace Translator\Tests\UnitTest\Lingvanex;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\Stream;
 use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
 use Translator\Client\GuzzleHTTPClient;
+use Translator\Translate\Constant\Translator;
 use Translator\Translate\DTO\Input\TranslateRequestDTO;
 use Translator\Translate\Exception\TranslatorException;
 use Translator\Translate\Lingvanex\LingvanexTranslator;
-use PHPUnit\Framework\TestCase;
+use Translator\Translate\Service\LanguageCode\LanguageCodeLookUpService;
 
 class LingvanexTranslatorTest extends TestCase
 {
@@ -100,8 +102,8 @@ class LingvanexTranslatorTest extends TestCase
             ->setAuthorizationToken('a-valid-token')
             ->translate(
                 new TranslateRequestDTO(
-                    'en_GB',
-                    'ne_NP',
+                    LanguageCodeLookUpService::fetch('en_GB', Translator::LINGVANEX),
+                    LanguageCodeLookUpService::fetch('ne', Translator::LINGVANEX),
                     'We are Nepali and we love Nepal',
                     true
                 )
@@ -133,8 +135,8 @@ class LingvanexTranslatorTest extends TestCase
             ->setAuthorizationToken('some-invalid-token')
             ->translate(
                 new TranslateRequestDTO(
-                    'en_GB',
-                    'ne_NP',
+                    LanguageCodeLookUpService::fetch('en_GB', Translator::LINGVANEX),
+                    LanguageCodeLookUpService::fetch('ne_NP', Translator::LINGVANEX),
                     'We are Nepali and we love Nepal',
                     true
                 )
@@ -191,8 +193,8 @@ class LingvanexTranslatorTest extends TestCase
             ->setAuthorizationToken('a-valid-token')
             ->translate(
                 new TranslateRequestDTO(
-                    'en_GB',
-                    'ne_NP',
+                    LanguageCodeLookUpService::fetch('en', Translator::LINGVANEX),
+                    LanguageCodeLookUpService::fetch('ne', Translator::LINGVANEX),
                     'We are Nepali and we love Nepal',
                     false
                 )

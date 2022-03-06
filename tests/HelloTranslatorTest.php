@@ -1,6 +1,6 @@
 <?php
 
-namespace test;
+namespace Translator\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Translator\HelloTranslator;
