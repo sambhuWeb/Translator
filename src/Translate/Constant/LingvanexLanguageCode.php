@@ -53,6 +53,8 @@ class LingvanexLanguageCode
     public const ITALIAN = 'it_IT';
     public const PORTUGUESE = 'pt_PT';
     public const GERMAN = 'de_DE';
+    public const FRENCH = 'fr_FR';
+    public const TURKISH = 'tr_TR';
 
     // Africa
     public const AMHARIC = 'am_ET';

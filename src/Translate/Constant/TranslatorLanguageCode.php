@@ -53,6 +53,8 @@ class TranslatorLanguageCode
     public const ITALIAN = 'it';
     public const PORTUGUESE = 'pt';
     public const GERMAN = 'de';
+    public const FRENCH = 'fr';
+    public const TURKISH = 'tr';
 
     // Africa
     public const AMHARIC = 'am';

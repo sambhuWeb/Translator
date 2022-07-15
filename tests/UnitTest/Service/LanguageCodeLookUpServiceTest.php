@@ -143,6 +143,10 @@ class LanguageCodeLookUpServiceTest extends TestCase
         yield['pt', 'pt_PT'];
         // German
         yield['de', 'de_DE'];
+        // French
+        yield['fr', 'fr_FR'];
+        // Turkish
+        yield['tr', 'tr_TR'];
 
         // Africa
         // Amharic

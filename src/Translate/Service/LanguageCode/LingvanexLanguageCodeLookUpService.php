@@ -88,6 +88,10 @@ class LingvanexLanguageCodeLookUpService implements LanguageCodeLookUpServiceInt
                 return LingvanexLanguageCode::PORTUGUESE;
             case TranslatorLanguageCode::GERMAN:
                 return LingvanexLanguageCode::GERMAN;
+            case TranslatorLanguageCode::FRENCH:
+                return LingvanexLanguageCode::FRENCH;
+            case TranslatorLanguageCode::TURKISH:
+                return LingvanexLanguageCode::TURKISH;
             case TranslatorLanguageCode::AMHARIC:
                 return LingvanexLanguageCode::AMHARIC;
             case TranslatorLanguageCode::SWAHILI:
