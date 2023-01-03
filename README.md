@@ -6,6 +6,6 @@
     OR
     vendor/bin/phpunit
     OR
-    vendor/bin/phpunit test
+    vendor/bin/phpunit tests
     OR
-    vendor/bin/phpunit --bootstrap vendor/autoload.php test
+    vendor/bin/phpunit --bootstrap vendor/autoload.php tests
