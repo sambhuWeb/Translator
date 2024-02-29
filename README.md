@@ -1,5 +1,10 @@
 # Easy Language Typing Translators
 
+## Running App:
+
+    1. php -S localhost:8000 
+    2. http://localhost:8000/src/index.php
+
 ## Running Tests:
 
     composer run-script test

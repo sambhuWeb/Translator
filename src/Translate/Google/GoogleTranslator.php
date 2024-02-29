@@ -36,6 +36,7 @@ class GoogleTranslator implements Translator
     /**
      * @param TranslateRequestDTO $translateRequestDTO
      * @return TranslatedResponseDTO
+     * @throws TranslatorException
      */
     public function translate(TranslateRequestDTO $translateRequestDTO): TranslatedResponseDTO
     {

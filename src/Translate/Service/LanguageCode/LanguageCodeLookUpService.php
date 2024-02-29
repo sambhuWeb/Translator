@@ -14,6 +14,8 @@ class LanguageCodeLookUpService
                 return LingvanexLanguageCodeLookUpService::fetch($languageCode);
             case Translator::GOOGLE:
                 return GoogleLanguageCodeLookUpService::fetch($languageCode);
+            case Translator::MICROSOFT:
+                return GoogleLanguageCodeLookUpService::fetch($languageCode);
             default:
                 throw new InvalidArgumentException(
                     sprintf("%s translator type is not valid.", $translator)
