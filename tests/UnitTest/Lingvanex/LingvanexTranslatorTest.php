@@ -10,7 +10,7 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Translator\Client\GuzzleHTTPClient;
 use Translator\Translate\Constant\Translator;
-use Translator\Translate\DTO\Input\TranslateRequestDTO;
+use Translator\Translate\DTO\Input\LingvanexTranslateRequestDTO;
 use Translator\Translate\Exception\TranslatorException;
 use Translator\Translate\Lingvanex\LingvanexTranslator;
 use Translator\Translate\Service\LanguageCode\LanguageCodeLookUpService;
@@ -101,7 +101,7 @@ class LingvanexTranslatorTest extends TestCase
             ->lingvanexTranslator
             ->setAuthorizationToken('a-valid-token')
             ->translate(
-                new TranslateRequestDTO(
+                new LingvanexTranslateRequestDTO(
                     LanguageCodeLookUpService::fetch('en_GB', Translator::LINGVANEX),
                     LanguageCodeLookUpService::fetch('ne', Translator::LINGVANEX),
                     'We are Nepali and we love Nepal',
@@ -134,7 +134,7 @@ class LingvanexTranslatorTest extends TestCase
         $this->lingvanexTranslator
             ->setAuthorizationToken('some-invalid-token')
             ->translate(
-                new TranslateRequestDTO(
+                new LingvanexTranslateRequestDTO(
                     LanguageCodeLookUpService::fetch('en_GB', Translator::LINGVANEX),
                     LanguageCodeLookUpService::fetch('ne_NP', Translator::LINGVANEX),
                     'We are Nepali and we love Nepal',
@@ -160,7 +160,7 @@ class LingvanexTranslatorTest extends TestCase
         $this->lingvanexTranslator
             ->setAuthorizationToken('a-valid-token')
             ->translate(
-                new TranslateRequestDTO(
+                new LingvanexTranslateRequestDTO(
                     'aa_AA',
                     'bb_BB',
                     'I Love Nepal',
@@ -192,7 +192,7 @@ class LingvanexTranslatorTest extends TestCase
             ->lingvanexTranslator
             ->setAuthorizationToken('a-valid-token')
             ->translate(
-                new TranslateRequestDTO(
+                new LingvanexTranslateRequestDTO(
                     LanguageCodeLookUpService::fetch('en', Translator::LINGVANEX),
                     LanguageCodeLookUpService::fetch('ne', Translator::LINGVANEX),
                     'We are Nepali and we love Nepal',

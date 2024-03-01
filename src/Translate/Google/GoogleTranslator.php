@@ -4,7 +4,6 @@ namespace Translator\Translate\Google;
 
 use Google\Cloud\Core\Exception\BadRequestException;
 use Google\Cloud\Translate\V2\TranslateClient;
-use JMS\Serializer\Exception\UnsupportedFormatException;
 use JMS\Serializer\Naming\IdenticalPropertyNamingStrategy;
 use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;
 use JMS\Serializer\SerializerBuilder;
@@ -36,6 +35,7 @@ class GoogleTranslator implements Translator
     /**
      * @param TranslateRequestDTO $translateRequestDTO
      * @return TranslatedResponseDTO
+     * @throws TranslatorException
      */
     public function translate(TranslateRequestDTO $translateRequestDTO): TranslatedResponseDTO
     {
