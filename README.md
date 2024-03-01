@@ -18,4 +18,4 @@
 ## Create git Tag
 
     git tag 1.4.0
-    git push origin --tags
+    git push origin 1.4.0
