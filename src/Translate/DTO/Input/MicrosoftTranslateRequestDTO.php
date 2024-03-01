@@ -13,6 +13,9 @@ class MicrosoftTranslateRequestDTO implements TranslateRequestDTO
     /** @var string */
     private $data;
 
+    /** @var bool */
+    private $enableTransliteration;
+
     /** @var string */
     private $apiVersion;
 
@@ -20,11 +23,13 @@ class MicrosoftTranslateRequestDTO implements TranslateRequestDTO
         string $fromLanguage,
         string $toLanguage,
         string $textToBeTranslated,
+        bool $enableTransliteration = false,
         string $apiVersion = '3.0'
     ) {
         $this->from = $fromLanguage;
         $this->to = $toLanguage;
         $this->data = $textToBeTranslated;
+        $this->enableTransliteration = $enableTransliteration;
         $this->apiVersion = $apiVersion;
     }
 
@@ -43,9 +48,11 @@ class MicrosoftTranslateRequestDTO implements TranslateRequestDTO
         return $this->data;
     }
 
-    /**
-     * @return string
-     */
+    public function isEnableTransliteration(): bool
+    {
+        return $this->enableTransliteration;
+    }
+
     public function getApiVersion(): string
     {
         return $this->apiVersion;

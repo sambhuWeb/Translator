@@ -13,14 +13,19 @@ class GoogleTranslateRequestDTO implements TranslateRequestDTO
     /** @var string */
     private $data;
 
+    /** @var bool */
+    private $enableTransliteration;
+
     public function __construct(
         string $fromLanguage,
         string $toLanguage,
-        string $textToBeTranslated
+        string $textToBeTranslated,
+        bool $enableTransliteration = false
     ) {
         $this->from = $fromLanguage;
         $this->to = $toLanguage;
         $this->data = $textToBeTranslated;
+        $this->enableTransliteration = $enableTransliteration;
     }
 
     public function getFrom(): string
@@ -36,5 +41,10 @@ class GoogleTranslateRequestDTO implements TranslateRequestDTO
     public function getData(): string
     {
         return $this->data;
+    }
+
+    public function isEnableTransliteration(): bool
+    {
+        return $this->enableTransliteration;
     }
 }

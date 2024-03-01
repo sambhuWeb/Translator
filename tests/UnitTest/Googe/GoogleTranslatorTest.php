@@ -91,8 +91,7 @@ class GoogleTranslatorTest extends TestCase
             new GoogleTranslateRequestDTO(
                 'en',
                 'aa',
-                'We are Nepali and we love Nepal',
-                true
+                'We are Nepali and we love Nepal'
             )
         );
     }
