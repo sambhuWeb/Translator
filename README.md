@@ -14,3 +14,7 @@
     vendor/bin/phpunit tests
     OR
     vendor/bin/phpunit --bootstrap vendor/autoload.php tests
+
+## Create git Tag
+
+    git tag 1.4.0    
