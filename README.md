@@ -17,4 +17,5 @@
 
 ## Create git Tag
 
-    git tag 1.4.0    
+    git tag 1.4.0
+    git push origin --tags
