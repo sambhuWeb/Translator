@@ -10,7 +10,7 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Translator\Client\GuzzleHTTPClient;
 use Translator\Translate\Constant\Translator;
-use Translator\Translate\DTO\Input\TranslateRequestDTO;
+use Translator\Translate\DTO\Input\MicrosoftTranslateRequestDTO;
 use Translator\Translate\Exception\TranslatorException;
 use Translator\Translate\Lingvanex\LingvanexTranslator;
 use Translator\Translate\Microsoft\MicrosoftTranslator;
@@ -74,9 +74,10 @@ class MicrosoftTranslatorTest extends TestCase
         $this->mockedClient->method('request')->willReturn($this->mockedResponse);
         $this->mockedResponse->method('getBody')->willReturn($this->mockedContent);
         $this->mockedGuzzleHTTPClient->method('getClient')->willReturn($this->mockedClient);
-//        $this->microsoftTranslator = new MicrosoftTranslator($this->mockedGuzzleHTTPClient);
-        $httpClient = new GuzzleHTTPClient();
-        $this->microsoftTranslator = new MicrosoftTranslator($httpClient);
+        $this->microsoftTranslator = new MicrosoftTranslator($this->mockedGuzzleHTTPClient);
+        // To Test Live Endpoint
+        // $httpClient = new GuzzleHTTPClient();
+        // $this->microsoftTranslator = new MicrosoftTranslator($httpClient);
     }
 
     /**
@@ -84,30 +85,31 @@ class MicrosoftTranslatorTest extends TestCase
      */
     public function it_correctly_translate_the_text_from_english_to_nepali()
     {
-//        $mockedResponseContentFromMicrosoft = [
-//            [
-//                "translations" => [
-//                    [
-//                        'text' => 'नेपाल विश्वकै छाना हो ।',
-//                        'to' => 'ne'
-//                    ]
-//                ]
-//            ]
-//        ];
-//
-//        $this
-//            ->mockedContent
-//            ->method('getContents')
-//            ->willReturn(
-//                json_encode($mockedResponseContentFromMicrosoft)
-//            );
+        // To Test Live Endpoint - Comment section below
+        $mockedResponseContentFromMicrosoft = [
+            [
+                "translations" => [
+                    [
+                        'text' => 'नेपाल विश्वकै छाना हो ।',
+                        'to' => 'ne'
+                    ]
+                ]
+            ]
+        ];
+
+        $this
+            ->mockedContent
+            ->method('getContents')
+            ->willReturn(
+                json_encode($mockedResponseContentFromMicrosoft)
+            );
 
         $translatedResponseDTO = $this
             ->microsoftTranslator
-            ->setAuthorizationToken('6fd5215e93944af0ada5d5b7f4f5380b')
+            ->setAuthorizationToken('a_valid_token') // Use valid key to test live endpoint
             ->setRegion('uksouth')
             ->translate(
-                new TranslateRequestDTO(
+                new MicrosoftTranslateRequestDTO(
                     'en',
                     'ne',
                     'Nepal is a roof of the world.'

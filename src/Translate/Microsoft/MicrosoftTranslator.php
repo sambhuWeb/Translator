@@ -37,6 +37,11 @@ class MicrosoftTranslator implements Translator
         )->build();
     }
 
+    /**
+     * @param TranslateRequestDTO $translateRequestDTO
+     * @return TranslatedResponseDTO
+     * @throws TranslatorException
+     */
     public function translate(TranslateRequestDTO $translateRequestDTO): TranslatedResponseDTO
     {
         $client = $this->httpClient->getClient($this->getClientConfig());
@@ -55,7 +60,7 @@ class MicrosoftTranslator implements Translator
                         'json'
                     ),
                     'query' => [
-                        'api-version' => '3.0',
+                        'api-version' => $translateRequestDTO->getApiVersion(),
                         'from' => $translateRequestDTO->getFrom(),
                         'to' => $translateRequestDTO->getTo()
                     ]
